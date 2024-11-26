@@ -8,8 +8,9 @@
     font-family: 'Poppins';
 }
 body{
-    margin: 0;padding: 0;
-   
+    margin: 0;
+    padding: 0;
+    background-color:  #ffffff; 
 }
 .logo-img{
     margin-left: 50px;
