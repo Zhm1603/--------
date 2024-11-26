@@ -7,12 +7,4 @@ function changeMenu(){
 
 const tg = window.Telegram.WebApp;
 
-function getUsername() {
-    const user = tg.initDataUnsafe.user;
-    const username = user.username;
-    const firstName = user.first_name;
-
-    return username + ' ' + firstName;
-}
-
-document.getElementById("tg-username").innerText = Welcome, `${getUsername()}`;
+document.getElementById("tg-username").innerText = `${tg.initDataUnsafe.user.username}`;
