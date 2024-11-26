@@ -1,4 +1,3 @@
-
 function changeMenu(){
     let burger = document.querySelector('.burger');
     burger.classList.toggle('active');
@@ -6,17 +5,14 @@ function changeMenu(){
     nav.classList.toggle('open')
 }
 
+const tg = window.Telegram.WebApp;
 
-const tg = window.Telegram.WebApp();
+function getUsername() {
+    const user = tg.initDataUnsafe.user;
+    const username = user.username;
+    const firstName = user.first_name;
 
-
-if (user) {
-    const username = tg.iniinitDataUnsafe.user.username;
-
-    // Проверка на наличие элемента с id "username"
-    let htmlUsername = document.getElementById("username");
-
-    if (htmlUsername) {
-        htmlUsername.innerText = username;  // Меняем содержимое на username
-    }
+    return username + ' ' + firstName;
 }
+
+document.getElementById("tg-username").innerText = Welcome, `${getUsername()}`;
