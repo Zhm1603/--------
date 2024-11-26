@@ -17,6 +17,6 @@ if (user) {
     let htmlUsername = document.getElementById("username");
 
     if (htmlUsername) {
-        htmlUsername.innerHTML = username;  // Меняем содержимое на username
+        htmlUsername.innerText = username;  // Меняем содержимое на username
     }
 }
