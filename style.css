@@ -32,7 +32,6 @@ body{
     background-color: var(--main-color);
     color:var(--font-color);
     padding: 0 40px;
-    min-width: 384px;
 }
 .nav-bar{
     display: flex;
