@@ -1,0 +1,235 @@
+:root{
+    --main-color: #448dd5;
+    --hover-color:#3173b5;
+    --font-color:black;
+    --burger-menu-color:rgb(100, 177, 241);
+}
+*{
+    font-family: 'Poppins';
+}
+body{
+    margin: 0;padding: 0;
+   
+}
+.logo-img{
+    margin-left: 50px;
+    display:flex;
+    align-items: center;
+}
+.logo-img img{
+    width: 56px;
+    height: 56px;
+}
+.open{
+    display: flex !important;
+}
+.header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height:100px;
+    background-color: var(--main-color);
+    color:var(--font-color);
+    padding: 0 40px;
+}
+.nav-bar{
+    display: flex;
+
+}
+
+.nav-links img{
+    width: 46px;
+    height: 46px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display:flex;
+    gap:40px;
+    margin-right: 50px;
+}
+
+.nav-links li{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    width: 150px;
+    text-align: center;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color:var(--font-color);
+}
+a:hover{
+    cursor:pointer;
+}
+.nav-bar li:hover{
+    background-color: var(--hover-color);
+    border-radius: 5px;
+    transform: translate(1px,1px );
+}
+.burger{
+    display: none;
+    position: relative;
+    z-index: 50;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30px;
+    height: 18px;
+}
+
+.burger span{
+    height: 2.5px;
+    width: 80%;
+    transform: scale(1);
+    background-color: var(--font-color);
+}
+.burger::before, .burger::after{
+    content: '';
+    position: absolute;
+    height: 2.5px;
+    width: 100%;
+    background-color: var(--font-color);
+    transition: all 0.3s ease 0s;
+}
+
+.burger::before{ top:0}
+
+.burger::after{ bottom:0}
+
+.burger.active span {transform: scale(0)}
+
+.burger.active::before{
+    top:50%;
+    transform: rotate(-45deg) translate(0,-50%);
+}
+
+.burger.active::after{
+    bottom:50%;
+    transform: rotate(45deg) translate(0,50%);
+}
+.container {
+    width: 100%;
+    min-width: 340px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    position: relative;
+}
+.human-img {
+    position: relative;
+    z-index: 1; 
+    max-width: 550px; 
+    max-height: 400px; 
+    width: 100%;
+    height: auto;
+}
+
+.human-img img {
+    max-height: 400px;
+    max-width: 550px;
+    width: 100%;
+    height: 100%;
+    min-width:250px;
+    min-height: 100px;
+    margin-top: 200px;
+    transition: transform .2s;
+}
+.human-img img:hover{
+    transform: scale(1.1);
+}
+.human-img:hover ~ .emoji-container {
+    display:block;
+}
+.background-circle {
+    background-color: var(--main-color);
+    height: 50%; 
+    width: 50%; 
+    max-width: 100%;
+    max-height: 200px;
+    opacity: 0.3;
+    border-radius: 50%;
+    position: absolute; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, 120%); 
+    z-index: 0; 
+}
+@media (max-width:650px) {
+    .burger{
+        display: flex;
+    }
+    .nav-bar ul{
+        flex-direction: column;
+        row-gap: 30px;
+    }
+    .nav-bar{
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0; bottom: 0;left: 0;right: 0;
+        z-index: 50;
+        overflow-y: auto;
+        padding: 50px 40px;
+        background-color: var(--burger-menu-color);
+        
+        animation: burgerAnimation 0.4s;
+    }
+    
+}
+@keyframes burgerAnimation {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+.emoji-container{
+    display: none;
+}
+.floating {
+    position: absolute;
+    animation-name: floating;
+    -webkit-animation-name: floating;
+    animation-duration: 5s;
+    -webkit-animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+.floating.smile {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-image: url("sad-emoji.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.9;
+    z-index: -2;
+  }
+@keyframes floating {
+    0% {
+      transform: translateY(0%) rotate(-55deg);
+    }
+    50% {
+      transform: translateY(300%) rotate(55deg);
+    }
+    100% {
+      transform: translateY(0%) rotate(-55deg);
+    }
+  }
+  @-webkit-keyframes floating {
+    0% {
+      -webkit-transform: translateY(0%);
+    }
+    50% {
+      -webkit-transform: translateY(300%);
+    }
+    100% {
+      -webkit-transform: translateY(0%);
+    }
+  }
