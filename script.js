@@ -7,4 +7,4 @@ function changeMenu(){
 
 const tg = window.Telegram.WebApp;
 
-document.getElementById("tg-username").innerText = `${tg.initDataUnsafe.user.username}`;
+document.getElementById("tg-username").value = `${tg.initDataUnsafe.user.username}`;
