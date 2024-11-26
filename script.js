@@ -7,13 +7,16 @@ function changeMenu(){
 }
 
 
-const tg = window.Telegram.WebApp;
-console.log(tg)
+const tg = window.Telegram.WebApp();
 
-const username = tg.initDataUnsafe.user.username;
-const firstName = tg.initDataUnsafe.user.first_name;
 
-console.log('Username:', username);
-console.log('First Name:', firstName);
+if (user) {
+    const username = tg.iniinitDataUnsafe.user.username;
 
-let htmlUsername = document.getElementsByClassName
+    // Проверка на наличие элемента с id "username"
+    let htmlUsername = document.getElementById("username");
+
+    if (htmlUsername) {
+        htmlUsername.innerHTML = username;  // Меняем содержимое на username
+    }
+}
